@@ -1,0 +1,72 @@
+
+<html>
+<head>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel=stylesheet type="text/css" href="dips2.css">
+</head>
+<body>
+<div class="container">     <!--這個 div 是為了讓包含的兩個 div 可以統一置中-->
+    <!-- <header>
+        <div id="head">Digital Interactive Performace Sketch</div><br>
+        <div id="intro">
+            <button id="finish">finish edit</button>
+            <button id="new">add rule</button>
+            <button id="deleteAll">delete rule</button> <br><br>
+        </div>
+    </header> -->
+
+    <!--block menu-->
+    <div class="left"><div class="menu-left">Blocks</div><br>
+        <ul style=" list-style: none;">
+            <li class="menu"><strong>STATES</strong></li>
+            <li class="blocks states"><span id="h">[state]: </span>rightHandUp</li>
+            <li class="blocks states"><span id="h">[state]: </span>rightHandDown</li>
+            <li class="blocks states"><span id="h">[state]: </span>leftHandUp</li>
+            <li class="blocks states"><span id="h">[state]: </span>leftHandDown</li>
+            <li class="menu"><strong>ACTIONS</strong></li>
+            <li class="blocks actions"><span id="h">[action]: </span> noseRaise </li>
+            <li class="blocks actions"><span id="h">[action]: </span> noseLay </li>
+            <li class="blocks actions"><span id="h">[action]: </span> bodyRaise </li>
+            <li class="blocks actions"><span id="h">[action]: </span> bodyLay </li>
+            <li class="blocks actions"><span id="h">[action]: </span> lightOn </li>
+            <li class="blocks actions"><span id="h">[action]: </span> lightOff </li>
+            <!-- <li class="blocks actions"><span id="h">[action]: </span> keepElephantAction </li>
+            <li class="blocks actions"><span id="h">[action]: </span> keepLightAction </li> -->
+            <li class="menu"><strong>OTHERWISE</strong></li>
+            <li class="blocks otherwise">otherwise</li>
+            <li class="menu"><strong>OPERATORS</strong></li>
+            <li class="blocks operators">and</li>
+            <li class="blocks operators">or</li>
+        </ul>
+    </div>
+
+    <!--rule entry-->
+    <div class="editor force-overflow" id="scroll_style">
+        <div class="menu-rule">Rule
+            <button id="new">+</button>
+        </div>
+        <br><br>
+        <div class="rules newr" id="rule-1"><br></div>
+    </div>
+    <div class="space" />
+    <!-- display rule script -->
+    <div class="preview force-overflow-preview" id="scroll_style">
+        <div class="menu-preview">Preview current editing
+            <button id="deleteAll">X</button>
+            <button id="finish">V</span></button>
+        </div>
+        <br><br>
+        <!--<div id="result"></div>-->
+        <!-- <div class="newre" id="result-1"></div> -->
+        <br>
+    </div>
+</div>
+
+<footer></footer>
+<script src="dips2.js"></script>
+</body>
+</html>
