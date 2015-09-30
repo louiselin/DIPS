@@ -1,6 +1,7 @@
 
 (function(window){
 
+document.onselectstart=function(){event.returnValue=false}
     var dips = function(){
         return new dips.prototype.init();
     };// end of var dips
@@ -29,8 +30,17 @@
                         // if(ui.hasClass("menu")) {
                             console.log(ui.draggable.text());
                         // }
+                        var blockstext = ui.draggable.text();
+                        var menutext = '';
+                        if(blockstext){
+                            if(blockstext == 'rightHandUp' || blockstext == 'rightHandDown' || blockstext == 'leftHandUp' || blockstext == 'leftHandDown') menutext = 'STATES';
+                            else if(blockstext == 'and' || blockstext == 'or') menutext = 'OPERATORS';
+                            else if(blockstext == 'otherwise') menutext = 'OTHERWISE';
+                            else menutext = 'ACTIONS';
+                        } 
+                        
                         $(this).append($(ui.helper).clone());
-                        $(this).append("<div class='tests'>"+ui.draggable.text()+"</div>");
+                        $(this).append("<div class='tests'><span class='dragedit'>"+ menutext +"</span>"+ui.draggable.text()+"</div>");
                         
                         //Add new class
                         $(".rules .blocks").addClass("item-"+counts[0]);
@@ -40,7 +50,7 @@
                         $(".item-" + counts[0]).removeClass("blocks ui-draggable ui-draggable-dragging");
                      
                         // remove when double click
-                        $(".test-"+counts[0]).dblclick(function() {
+                        $(".test-"+counts[0]).click(function() {
                             $(this).remove();
                             $(".item-"+counts[0]).remove();
                         });
@@ -69,7 +79,7 @@
         }, // end of make_draggable
         make_rule: function(l, count){
             var rule = '';
-            var states, effect, actions1, actions2, operator = '', otherwise = 0;
+            var states, effect, actions1, actions2, actions3, operator = '', otherwise = 0;
             var imports = 'import com.zgrannan.ubicomp._\n' +
                 'import Implicit._\n' +
                 'import Syntax._\n' +
@@ -81,25 +91,30 @@
 
             var ruleName = 'Rule' + count + ' = ';
             // var ruleName = 'val Rule' + count + ' = ';
-            var num_actions = 0;
-            var num = 0;
-            var actions = 'action';
-            var action_count = 0;
 
-            for( var i = 0; i < l.length; i++){
-                //console.log(l[i].classList[0]);
+            var action_count = 0;
+            var operators = 0;
+            var num, num_actions = 0;
+
+            for(var i = 0; i < l.length; i++){
+                console.log(l[i].classList[0]);
 
                 switch(l[i].classList[0]){
                     case "states":
                         states = l[i].innerHTML + '';
                         break;
                     case "actions":
+                        num = ++num_actions;
                         if(action_count == 0){
                             action_count = 1;
                             actions1 = l[i].innerHTML + '';
                         }
-                        else {
+                        else if(action_count == 1){
+                            action_count = 2;
                             actions2 = l[i].innerHTML + '';
+                        }
+                        else {
+                            actions3 = l[i].innerHTML + '';
                             action_count = 0;
                         }
                         //num = ++num_actions;
@@ -116,11 +131,13 @@
                         //}
 
                         break;
-                    case "effects":
-                        effect = l[i].innerHTML + '';
-                        break;
+                    // case "effects":
+                    //     effectst = l[i].innerHTML + '';
+                    //     break;
                     case "operators":
+                        operators = 1;
                         operator = l[i].innerHTML + '';
+                        
                         //if(operator_count == 0) {
                         //    operator_count = 1;
                         //    var operator1 = l[i].innerHTML + '';
@@ -138,17 +155,93 @@
                 }
             }
 
-            var operator_count = 0;
-
+            if(operators==0) {
+                rule = ruleName + 'when(' + states + /* more states generator */
+                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' }': ' }') + '\n';    
+            } else if(operators==1) {
+                if(num==2) {
+                    rule = ruleName + 'when(' + states + /* more states generator */
+                '){ ' + actions1 + operator + actions2 + ' }' + '\n';    
+                } else if(num==3) {
+                    rule = ruleName + 'when(' + states + /* more states generator */
+                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' ': ' ') 
+                    + operator + actions3 + ' }\n';    
+                } else {
+                    // rule = "no defined!";
+                    alert("Error!");
+                }      
+            } else {
+                alert("Out of defined!");
+            }
             //imports +
-            rule = ruleName + 'when(' + states + /* more states generator */
-                ')' + actions1 + (otherwise ? ' otherwise ' + actions2 : ' ') +'\n';
-
+            // rule = ruleName + 'when(' + states + /* more states generator */
+            //     ')' + actions1 + (otherwise ? ' otherwise ' + actions2 : ' ') +'\n';
+            
             //rule = ruleName + 'when(' + states +
             //    ')' + a + (otherwise ? 'otherwise' + b + ' ' : ' ') +
             //    '\nlistener.instruct(Rule' + count + ')\n' + num;
 
             return rule;
+        },
+        make_run: function(l, count){
+            var ruleRun = '';
+            var states, effect, actions1, actions2, actions3, operator = '', otherwise = 0;
+            var action_count = 0;
+            var operators = 0;
+            var num, num_actions = 0;
+
+            for(var i = 0; i < l.length; i++){
+                console.log(l[i].classList[0]);
+
+                switch(l[i].classList[0]){
+                    case "states":
+                        states = l[i].innerHTML + '';
+                        break;
+                    case "actions":
+                        num = ++num_actions;
+                        if(action_count == 0){
+                            action_count = 1;
+                            actions1 = l[i].innerHTML + '';
+                        }
+                        else if(action_count == 1){
+                            action_count = 2;
+                            actions2 = l[i].innerHTML + '';
+                        }
+                        else {
+                            actions3 = l[i].innerHTML + '';
+                            action_count = 0;
+                        }
+                        break;
+                    case "operators":
+                        operators = 1;
+                        operator = l[i].innerHTML + '';
+                        break;
+                    case "otherwise":
+                        otherwise = 1;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if(operators==0) {
+                ruleRun = 'when(' + states + /* more states generator */
+                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' }': ' }') + '\n';    
+            } else if(operators==1) {
+                if(num==2) {
+                    ruleRun = 'when(' + states + /* more states generator */
+                '){ ' + actions1 + operator + actions2 + ' }' + '\n';    
+                } else if(num==3) {
+                    ruleRun = 'when(' + states + /* more states generator */
+                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' ': ' ') 
+                    + operator + actions3 + ' }\n';    
+                } else {
+                    alert("Error!");
+                }      
+            } else {
+                alert("Out of defined!");
+            }
+            return ruleRun;
         },
         add_rule: function(){
             var r = $('.newr'); // only one newr
@@ -232,23 +325,40 @@
 
     $("#deleteAll").click(dips().d_check);
 
+    var ruleL = [];
     // finised all rules and submit to engine
     $('#finish').click(function(){
         for(var r in ruleList){
-            console.log(ruleList[r]);
-            /* final check if rule is changed */
-            var l = $('#' + ruleList[r]).children();
+            var l = $('#'+ruleList[r]).children();
             var count = ruleList[r].split('-')[1];
-            var rule = '';
-            rule = dips().make_rule(l, count);
-            // console.log(rule);
-            console.log($.get('http://localhost:12345', {rule: rule}));
+            for(i = 0; i<ruleList.length; i++){
+                if(i==ruleList.length-1) { // the last one no comma
+                    rule = dips().make_run(l, count);
+                    
+                }
+                else {
+                    rule = dips().make_run(l, count) + ',';
+                    
+                }
+                
+            }            
+            //console.log($.get('http://localhost:12345', {rule:rule}));
+             console.log($.get('http://192.168.0.101:12345', {rule: rule}));
         }
+        // comma(ruleList); 
+        //console.log($.get('http://localhost:12345', {rule:rule}));
+            // console.log($.get('http://localhost:12345', {rule: rule}));
+            //rule = dips().make_run(l, count);
+            // console.log(rule);
+            //console.log($.get('http://192.168.0.100:12345', {rule: rule}));
     });
+    var rule = '';
+    var space = '';
+    var i = 0;
 
     var drpOptions = {
         drop: function(event, ui) {
-            $(this).append("<div class='tests'>"+ui.draggable.text() + "</div>" );
+            $(this).append("<div class='tests'><span class='dragedit'>"+ menutext +"</span>"+ui.draggable.text()+"</div>");
         }
     };
     //

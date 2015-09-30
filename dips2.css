@@ -1,12 +1,12 @@
 html, body {
-    background:linear-gradient(top,#B8E1DD,#FFFFFF);
-    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF);
-    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF);
+    background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
+    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
+    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
     font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
-    /*background-color: #B8E1DD;*/
 }
 body {
     margin: 0px; 
+    star:expression(document.oncontextmenu=function(){return false;});
 }
 #head {
     text-align: center;
@@ -21,10 +21,13 @@ body {
 .tests {
     text-align: left;
     padding: 0px 30px; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: black;
 }
 .container{
     width: 1050px;
-    height: 1000px;
+    /*height: 2000px;*/
     margin: auto;       /*margin是調整與視窗邊界的距離(置中)*/
 }
 .left{                  /* 左邊選擇區 */
@@ -50,6 +53,7 @@ body {
 }
 .preview {
     width: 1012px;
+    padding-bottom: 50px;
     text-align: center;
     background:linear-gradient(top,#B8E1DD,#FFFFFF);
     background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF);
@@ -58,7 +62,7 @@ body {
 /*.preview {     
     text-align: center;
     width: 1006px;
-    height: 360px;
+    height: 325px;
     overflow-y: scroll;
     background-color: #B8E1DD;
     border-color: transparent;
@@ -173,13 +177,45 @@ body {
   box-sizing: border-box;
   margin-top: -1px;
 }
+.dragedit {
+  background: #449187;
+  background-image: -webkit-linear-gradient(top, #3A9188, #51AF5B);
+  background-image: -moz-linear-gradient(top, #3A9188, #51AF5B);
+  background-image: -ms-linear-gradient(top, #3A9188, #51AF5B);
+  background-image: -o-linear-gradient(top, #3A9188, #51AF5B);
+  background-image: linear-gradient(to bottom, #3A9188, #51AF5B);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 8px 4px 8px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.dragedit:hover {
+  background: #228291;
+  border-style: inset;
+  background-image: -webkit-linear-gradient(top, #20655F, #449187);
+  background-image: -moz-linear-gradient(top, #20655F, #449187);
+  background-image: -ms-linear-gradient(top, #20655F, #449187);
+  background-image: -o-linear-gradient(top, #20655F, #449187);
+  background-image: linear-gradient(to bottom, #20655F, #449187);
+  text-decoration: none;
+  border-width: 1px;
+}
 
 
 .rules {                /* 中間編輯區內條目 */
     margin: auto;
     padding-bottom: 30px;
-    padding-top: 20px;
-    margin-bottom: 14px;
+    padding-top: 10px;
+    margin-bottom: 35px;
+    margin-top: -10px;
     width: 450px;
     font-size: 16px;
     color: #E5E5E5;
@@ -266,15 +302,45 @@ body {
 }
 
 button{
-    background-color: lightblue;
-    border-radius: 50px;
+    font-weight: bold;
+    background-color: #3A9188;
+    width: 40px;
     height: 40px;
-    margin-left: 20px;
+    float: right;
+    border-width: none;
+    border-style: outset;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
-/*#new {
-    margin-right: 20px;   
-}*/
-
+button:hover {
+    /*background-color: #39D2B4;*/
+    border-style: inset;
+    opacity:0.9; 
+    filter:alpha(opacity=90);  
+    cursor: pointer;
+}
+#new {
+    background: url(http://img.eyelor.com/web/plus.png) 6px 6px no-repeat;
+    background-color: #3A9188;
+    border-width: 5px;
+}
+#finish {
+    
+    background: url(http://www.atualnet.com.br/png/glyphicons_206_ok_2.png) -1px -2px no-repeat;
+    background-color:linear-gradient(top,#3A9188,#044F40);
+    background-color:-moz-linear-gradient(top,#3A9188,#044F40);
+    background-color:-webkit-linear-gradient(top,#3A9188,#044F40);
+    
+    background-color: #3A9188;
+    border-width: 5px;
+}
+#deleteAll {
+    background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 6px 7px no-repeat;
+    background-color: #3A9188;
+    border-width: 5px;
+}
 .newre {
     text-align: left;
     /*background-color: #2D84A7;*/
