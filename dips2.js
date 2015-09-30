@@ -191,8 +191,6 @@ document.onselectstart=function(){event.returnValue=false}
             var num, num_actions = 0;
 
             for(var i = 0; i < l.length; i++){
-                console.log(l[i].classList[0]);
-
                 switch(l[i].classList[0]){
                     case "states":
                         states = l[i].innerHTML + '';
@@ -226,15 +224,15 @@ document.onselectstart=function(){event.returnValue=false}
 
             if(operators==0) {
                 ruleRun = 'when(' + states + /* more states generator */
-                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' }': ' }') + '\n';    
+                '){' + actions1 + (otherwise ? ' otherwise ' + actions2 + '}': '}');    
             } else if(operators==1) {
                 if(num==2) {
                     ruleRun = 'when(' + states + /* more states generator */
-                '){ ' + actions1 + operator + actions2 + ' }' + '\n';    
+                '){' + actions1 + operator + actions2 + '}';    
                 } else if(num==3) {
                     ruleRun = 'when(' + states + /* more states generator */
-                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' ': ' ') 
-                    + operator + actions3 + ' }\n';    
+                '){' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' ': ' ') 
+                    + operator + actions3 + '}';    
                 } else {
                     alert("Error!");
                 }      
@@ -278,7 +276,7 @@ document.onselectstart=function(){event.returnValue=false}
         },// end of add_rulep
         d_check: function() {
             var sel = false;
-            var c = confirm('delete or not?');
+            var c = confirm('Are you sure?');
             if(c) {
                 for (var r in ruleList) {
                     var count = ruleList[r].split('-')[1];
@@ -325,36 +323,40 @@ document.onselectstart=function(){event.returnValue=false}
 
     $("#deleteAll").click(dips().d_check);
 
-    var ruleL = [];
+    
     // finised all rules and submit to engine
     $('#finish').click(function(){
+        var rule = '';
+        var ruletotal = [];
+
         for(var r in ruleList){
             var l = $('#'+ruleList[r]).children();
             var count = ruleList[r].split('-')[1];
-            for(i = 0; i<ruleList.length; i++){
-                if(i==ruleList.length-1) { // the last one no comma
-                    rule = dips().make_run(l, count);
-                    
-                }
-                else {
-                    rule = dips().make_run(l, count) + ',';
-                    
-                }
-                
-            }            
-            //console.log($.get('http://localhost:12345', {rule:rule}));
-             console.log($.get('http://192.168.0.101:12345', {rule: rule}));
+            rule = dips().make_run(l, count);
+            
+            if(count==ruleList.length-1) rule+=",";
+            else rule = rule;
+            //console.log("rule: "+rule);
+            ruletotal.push(rule);
+            
+            
+            // for(var i = 0; i<ruleList.length; i++){
+            //     if(i==ruleList.length) { // the last one no comma
+            //         rule = dips().make_run(l, count)+",";
+            //     }
+            //     // else {
+            //     //     rule += dips().make_run(l, count);
+            //     //     rule += ',';   
+            //     // }
+            // }
         }
-        // comma(ruleList); 
-        //console.log($.get('http://localhost:12345', {rule:rule}));
-            // console.log($.get('http://localhost:12345', {rule: rule}));
-            //rule = dips().make_run(l, count);
-            // console.log(rule);
+            
+            // console.log(ruletotal);
+            // console.log($.get('http://localhost:12345', {rule:ruletotal}));
+            console.log($.get('http://localhost:12345', {rule:ruletotal}));
             //console.log($.get('http://192.168.0.100:12345', {rule: rule}));
     });
-    var rule = '';
-    var space = '';
-    var i = 0;
+    
 
     var drpOptions = {
         drop: function(event, ui) {
