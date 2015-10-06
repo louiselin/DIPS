@@ -1,7 +1,9 @@
+
 html, body {
-    background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
+    /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
     background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
-    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
+    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
+    background-image:url(http://www.domino-box.com/i/wood.jpg);
     font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
 }
 body {
@@ -15,49 +17,99 @@ body {
 #intro {
 
 }
-#h {
+#tshow, #tshow_a {
+  cursor: pointer;
+}
+#h, #trig, #trig_a {
     display: none;
 }
+#todoapp .header {
+    /*position: absolute;*/
+    margin-top: 30px;
+    /*top: -120px;*/
+    width: 100%;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    /*-webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;*/
+    /*text-rendering: optimizeLegibility;*/
+}
+.header {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+#todoapp .footer {
+    /*position: absolute;*/
+    margin-bottom: 30px;
+    /*top: -120px;*/
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+}
+
 .tests {
     text-align: left;
     padding: 0px 30px; 
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: black;
+    /*background-color: black;*/
 }
 .container{
     width: 1050px;
     /*height: 2000px;*/
-    margin: auto;       /*margin是調整與視窗邊界的距離(置中)*/
+    margin: auto; 
+
 }
-.left{                  /* 左邊選擇區 */
+.left{          
+    overflow-y: scroll;
+    overflow-x: hidden;        
     margin: auto;
     text-align: center;
     width:400px;
-    height: 630px;
+    height: 500px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 20px;
     float: left;
+    /*background-image: url(http://emberjs.com.s3.amazonaws.com/getting-started/bg.png);*/
     background-color: #B8E1DD;
     border-color: transparent;
     border-style: solid;
     /*border-right-width: thin;*/
     border-right-color: lightgray;
+
 }
 .space {
     float: left;
-    margin-left: 10px;
+    margin-left: 20px;
     width: 1012px;
     height: 20px;
     background-color: #B8E1DD;
 }
 .preview {
     width: 1012px;
+    /*margin-left: 20px;*/
     padding-bottom: 50px;
+    margin-bottom: 101px;
     text-align: center;
-    background:linear-gradient(top,#B8E1DD,#FFFFFF);
-    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF);
-    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF);
+    background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
+    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
+    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
+    box-shadow:6px 11px 9px rgba(20%,20%,40%,0.5);
 }
 /*.preview {     
     text-align: center;
@@ -72,7 +124,7 @@ body {
     margin: auto;
     text-align: center;
     width: 600px;
-    height: 630px;
+    height: 500px;
     overflow-y: scroll;
     overflow-x: hidden;
     float: left;
@@ -80,6 +132,7 @@ body {
     background-color: #B8E1DD;
     border-color: transparent;
     border-style: solid;
+    box-shadow:6px 11px 9px rgba(20%,20%,40%,0.5);
 }
 .force-overflow
 {
@@ -106,7 +159,7 @@ body {
 {
     border-radius: 8px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #3A9188;
+    background-color: #118DF0;
 }
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -148,7 +201,7 @@ body {
   background:#34495E; 
 }
 [type="checkbox"]:checked + label:after {
-  background: #39D2B4;
+  background: #88e1f7;
   top: 2px; left: 40px;
 }
 
@@ -170,7 +223,7 @@ body {
 }
 [type="checkbox"]:checked + label .ui:after {
   content: "yes";
-  color: #39D2B4;
+  color: #88e1f7;
 }
 [type="checkbox"]:focus + label:before {
   border: 1px dashed #777;
@@ -179,11 +232,11 @@ body {
 }
 .dragedit {
   background: #449187;
-  background-image: -webkit-linear-gradient(top, #3A9188, #51AF5B);
-  background-image: -moz-linear-gradient(top, #3A9188, #51AF5B);
-  background-image: -ms-linear-gradient(top, #3A9188, #51AF5B);
-  background-image: -o-linear-gradient(top, #3A9188, #51AF5B);
-  background-image: linear-gradient(to bottom, #3A9188, #51AF5B);
+  background-image: -webkit-linear-gradient(top, #1D556F, #288FB4);
+  background-image: -moz-linear-gradient(top, #1D556F, #288FB4);
+  background-image: -ms-linear-gradient(top, #1D556F, #288FB4);
+  background-image: -o-linear-gradient(top, #1D556F, #288FB4);
+  background-image: linear-gradient(to bottom, #1D556F, #288FB4);
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 28px;
@@ -199,14 +252,15 @@ body {
 }
 .dragedit:hover {
   background: #228291;
-  border-style: inset;
-  background-image: -webkit-linear-gradient(top, #20655F, #449187);
-  background-image: -moz-linear-gradient(top, #20655F, #449187);
-  background-image: -ms-linear-gradient(top, #20655F, #449187);
-  background-image: -o-linear-gradient(top, #20655F, #449187);
-  background-image: linear-gradient(to bottom, #20655F, #449187);
+  /*border-style: inset;*/
+  background-image: -webkit-linear-gradient(top, #352771, #5E89EF);
+  background-image: -moz-linear-gradient(top, #352771, #5E89EF);
+  background-image: -ms-linear-gradient(top, #352771, #5E89EF);
+  background-image: -o-linear-gradient(top, #352771, #5E89EF);
+  background-image: linear-gradient(to bottom, #352771, #5E89EF);
   text-decoration: none;
   border-width: 1px;
+  font-size: 11px;
 }
 
 
@@ -220,7 +274,7 @@ body {
     font-size: 16px;
     color: #E5E5E5;
     /*height: 105px;*/
-    background-color: #3A9188;
+    background-color: #118DF0;
     border-radius: 5px;
     border: solid;
     border-style: inset;
@@ -229,41 +283,50 @@ body {
 }
 .menu {
     margin-left: 8%;
-    text-align: center;
+    /*text-align: left;*/
+    padding-top: 30px;
     width: 250px;
-    height: 28px;
+    height: 30px;
+    text-shadow: 1px 2px black;
     font-size: 20px;
     border-radius: 5px;
     border: solid;
     border-style: outset;
-    border-color: #044A42;
+    border-color: #004182;
     border-width: 2px;
-    background-color: #044F40;
+    background-color: #004182;
     color: #E5E5E5;
 }
 
 .blocks {               /* 方塊 */
     text-align: center;
     margin-left: 8%;
-    background-color: #3A9188;
+    background-color: #118DF0;
     color: #E5E5E5;
+    text-shadow: 1px 1px black;
     width: 250px;
     height: 24px;
     font-size: 16px;
     border-radius: 5px;
     border: solid;
     border-style: outset;
-    border-color: #3A9188;
+    border-color: #118DF0;
     border-width: 2px;
     cursor: pointer;
     position: relative;
     z-index: 1000;
+    opacity: 0.6;
     /*-webkit-filter: contrast(60%);*/
 }
 .blocks:hover {
-    background-color: #044A42;
+    background-color: #004182;
     border-radius: 5px;
     font-weight: bold;
+    border: solid;
+    border-style: outset;
+    border-color: #004182;
+    border-width: 2px;
+    opacity: 1;
 }
 .blocks.ui-draggable-dragging {
     background-color: transparent;
@@ -273,37 +336,40 @@ body {
 .menu-rule{
     font-weight: bold;
     height: 50px;
-    background-color: #062925;
+    text-shadow: 1px 1px black;
+    background-color: #004182;
     border-color: transparent;
     border-style: solid;
-    color: lightgray;
+    color: white;
     font-size: 30px;
     padding-top: 10px;
 }
 .menu-left {
     font-weight: bold;
     height: 50px;
-    background-color: #062925;
+    text-shadow: 1px 1px black;
+    background-color: #004182;
     border-color: transparent;
     border-style: solid;
-    color: lightgray;
+    color: white;
     font-size: 30px;
     padding-top: 10px;
 }
 .menu-preview {
     font-weight: bold;
     height: 50px;
-    background-color: #062925;
+    background-color: #004182;
     border-color: transparent;
     border-style: solid;
-    color: lightgray;
+    color: white;
     font-size: 30px;
+    text-shadow: 1px 1px black;
     padding-top: 10px;
 }
 
 button{
     font-weight: bold;
-    background-color: #3A9188;
+    background-color: #387ADF;
     width: 40px;
     height: 40px;
     float: right;
@@ -323,7 +389,7 @@ button:hover {
 }
 #new {
     background: url(http://img.eyelor.com/web/plus.png) 6px 6px no-repeat;
-    background-color: #3A9188;
+    background-color: #387ADF;
     border-width: 5px;
 }
 #finish {
@@ -333,12 +399,12 @@ button:hover {
     background-color:-moz-linear-gradient(top,#3A9188,#044F40);
     background-color:-webkit-linear-gradient(top,#3A9188,#044F40);
     
-    background-color: #3A9188;
+    background-color: #387ADF;
     border-width: 5px;
 }
 #deleteAll {
     background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 6px 7px no-repeat;
-    background-color: #3A9188;
+    background-color: #387ADF;
     border-width: 5px;
 }
 .newre {
@@ -351,8 +417,103 @@ button:hover {
     margin-top: -14px;
     margin-bottom: 40px;
     font-size: 24px;
-    color: #062925;
+    color: #004182;
     margin-left: 50px;
     width: 800px;
     font-style: italic;
+}
+.picrightraise{
+    background-image:url(http://i.imgur.com/MLbdwNw.png);
+    background-repeat:no-repeat;
+    opacity: 0.6;
+    background-size:25px 25px;
+    background-position: 190px -1px;
+}
+.picleftraise{
+    background-image:url(http://i.imgur.com/8VoNkr0.png);
+    background-repeat:no-repeat;
+    opacity: 0.6;
+    background-size:25px 25px;
+    background-position: 190px -1px;
+}
+
+.picleftdown{
+    background-image:url(http://i.imgur.com/hGojXPO.png);
+    background-repeat:no-repeat;
+    opacity: 0.6;
+    background-size:25px 25px;
+    background-position: 190px -1px;
+}
+.picrightdown{
+  background-image: url(http://i.imgur.com/zrgdFF2.png);
+  background-repeat:no-repeat;
+  opacity: 0.6;
+  background-size:25px 25px;
+  background-position: 190px -1px;
+}
+.picnosedown{
+    background-image:url(http://www.clker.com/cliparts/c/d/e/e/119715842258917068molumen_elephant_silhouet.svg.hi.png);
+    background-repeat:no-repeat;
+    opacity: 0.6;
+    background-size:27px 27px;
+    background-position: 190px 1px;
+}
+.picnoseraise{
+    background-image:url(http://i.imgur.com/xYHK4mP.png);
+    background-repeat:no-repeat;
+    opacity: 0.6;
+    background-size:33px 33px;
+    background-position: 190px -5px;
+}
+.picbodyraise{
+    background-image:url(http://i.imgur.com/D2GnKWq.png);
+    background-repeat:no-repeat;
+    background-size:33px 33px;
+    background-position: 185px -1px;
+    opacity: 0.6;
+}
+.picbodydown{
+    background-image:url(http://i.imgur.com/tqqpMTM.png);
+    background-repeat:no-repeat;
+    background-size:27px 27px;
+    background-position: 190px 1px;
+    opacity: 0.6;
+}
+.piclightoff{
+    background-image:url(http://www.davidetrezzi.eu/images/passions/creative.png);
+    background-repeat:no-repeat;
+    background-size:27px 27px;
+    background-position: 190px 1px;
+    opacity: 0.6;
+}
+.piclighton{
+    background-image:url(http://www.sevencards.com.br/website2/images/icon_03.png);
+    background-repeat:no-repeat;
+    background-size:30px 30px;
+    background-position: 188px -3px;
+    opacity: 0.6;
+}
+.pictrigger{
+    background-image:url(http://icons.iconarchive.com/icons/icons8/windows-8/512/Gaming-Trigger-Mode-icon.png);
+    background-repeat:no-repeat;
+    background-size: 45px 45px;
+    background-position: 100px -1px;
+}
+.picaction{
+    background-image:url(https://cdn3.iconfinder.com/data/icons/glypho-generic-icons/64/action-upload-alt-512.png);
+    background-repeat:no-repeat;
+    background-size: 50px 45px;
+    background-position: 100px -2px;
+}
+.picother{
+    background-image:url(https://upload.wikimedia.org/wikipedia/commons/e/ee/Chain_link_icon.png);
+    background-repeat:no-repeat;
+    background-size: 45px 25px;
+    background-position: 105px 2px;
+}
+.picoperator{
+    background-image:url(https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/ADB_Icon.svg/320px-ADB_Icon.svg.png);
+    background-repeat:no-repeat;
+    background-size: 50px 40px;
+    background-position: 105px -1px;
 }

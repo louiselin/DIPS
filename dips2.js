@@ -33,8 +33,8 @@ document.onselectstart=function(){event.returnValue=false}
                         var blockstext = ui.draggable.text();
                         var menutext = '';
                         if(blockstext){
-                            if(blockstext == 'rightHandUp' || blockstext == 'rightHandDown' || blockstext == 'leftHandUp' || blockstext == 'leftHandDown') menutext = 'STATES';
-                            else if(blockstext == 'and' || blockstext == 'or') menutext = 'OPERATORS';
+                            if(blockstext == 'RightHandUp' || blockstext == 'RightHandDown' || blockstext == 'LeftHandUp' || blockstext == 'LeftHandDown') menutext = 'TRIGGERS';
+                            else if(blockstext == 'and' || blockstext == 'or' || blockstext == 'not') menutext = 'OPERATORS';
                             else if(blockstext == 'otherwise') menutext = 'OTHERWISE';
                             else menutext = 'ACTIONS';
                         } 
@@ -95,16 +95,36 @@ document.onselectstart=function(){event.returnValue=false}
             var action_count = 0;
             var operators = 0;
             var num, num_actions = 0;
+            var statexchangetext = '';
+            var actionchangetext = '';
 
             for(var i = 0; i < l.length; i++){
                 console.log(l[i].classList[0]);
 
                 switch(l[i].classList[0]){
                     case "states":
-                        states = l[i].innerHTML + '';
-                        break;
+                        switch(l[i].innerHTML){
+                            case 'RightHandUp': statexchangetext = 'rightHandUp';break;
+                            case 'RightHandDown': statexchangetext = 'rightHandDown';break;
+                            case 'LeftHandUp': statexchangetext = 'leftHandUp';break;
+                            case 'LeftHandDown': statexchangetext = 'leftHandDown';break;    
+                            default: statexchangetext = 'leftHandUp';break;
+                        }
+                        // states = l[i].innerHTML + '';
+                        states = statexchangetext;
+                        break;  
                     case "actions":
                         num = ++num_actions;
+                        // switch(l[i].innerHTML){
+                        //     case 'Nose-Up': actionchangetext = 'noseRaise';break;
+                        //     case 'Nose-Down': actionchangetext = 'noseLay';break;
+                        //     case 'Body-Up': actionchangetext = 'bodyRaise';break;
+                        //     case 'Body-Down': actionchangetext = 'bodyLay';break;
+                        //     case 'Light-On': actionchangetext = 'lightOn';break;
+                        //     case 'Light-Off': actionchangetext = 'lightOff';break;    
+                        //     default: actionchangetext = 'noseRaise';break;
+                        // }
+
                         if(action_count == 0){
                             action_count = 1;
                             actions1 = l[i].innerHTML + '';
@@ -157,7 +177,7 @@ document.onselectstart=function(){event.returnValue=false}
 
             if(operators==0) {
                 rule = ruleName + 'when(' + states + /* more states generator */
-                '){ ' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' }': ' }') + '\n';    
+                '){ ' + actions1 + '}'+ (otherwise ? ' otherwise {' + actions2 + ' }': '') + '\n';    
             } else if(operators==1) {
                 if(num==2) {
                     rule = ruleName + 'when(' + states + /* more states generator */
@@ -190,13 +210,33 @@ document.onselectstart=function(){event.returnValue=false}
             var operators = 0;
             var num, num_actions = 0;
 
+            var statexchangetext = '';
+            var actionchangetext = '';
+
             for(var i = 0; i < l.length; i++){
                 switch(l[i].classList[0]){
                     case "states":
-                        states = l[i].innerHTML + '';
-                        break;
+                        switch(l[i].innerHTML){
+                            case 'RightHandUp': statexchangetext = 'rightHandUp';break;
+                            case 'RightHandDown': statexchangetext = 'rightHandDown';break;
+                            case 'LeftHandUp': statexchangetext = 'leftHandUp';break;
+                            case 'LeftHandDown': statexchangetext = 'leftHandDown';break;    
+                            default: statexchangetext = 'leftHandUp';break;
+                        }
+                        // states = l[i].innerHTML + '';
+                        states = statexchangetext;
+                        break;    
                     case "actions":
-                        num = ++num_actions;
+                        // switch(l[i].innerHTML){
+                        //     case 'Nose-Up': actionchangetext = 'noseRaise';break;
+                        //     case 'Nose-Down': actionchangetext = 'noseLay';break;
+                        //     case 'Body-Up': actionchangetext = 'bodyRaise';break;
+                        //     case 'Body-Down': actionchangetext = 'bodyLay';break;
+                        //     case 'Light-On': actionchangetext = 'lightOn';break;
+                        //     case 'Light-Off': actionchangetext = 'lightOff';break;    
+                        //     default: actionchangetext = 'noseRaise';break;
+                        // }
+
                         if(action_count == 0){
                             action_count = 1;
                             actions1 = l[i].innerHTML + '';
@@ -223,14 +263,14 @@ document.onselectstart=function(){event.returnValue=false}
             }
 
             if(operators==0) {
-                ruleRun = 'when(' + states + /* more states generator */
-                '){' + actions1 + (otherwise ? ' otherwise ' + actions2 + '}': '}');    
+                ruleRun = 'when(' + states + 
+                '){' + actions1 + '}'+ (otherwise ? ' otherwise {' + actions2 + '}': '');    
             } else if(operators==1) {
                 if(num==2) {
-                    ruleRun = 'when(' + states + /* more states generator */
+                    ruleRun = 'when(' + states + 
                 '){' + actions1 + operator + actions2 + '}';    
                 } else if(num==3) {
-                    ruleRun = 'when(' + states + /* more states generator */
+                    ruleRun = 'when(' + states + 
                 '){' + actions1 + (otherwise ? ' otherwise ' + actions2 + ' ': ' ') 
                     + operator + actions3 + '}';    
                 } else {
@@ -254,7 +294,7 @@ document.onselectstart=function(){event.returnValue=false}
 
                 _this.make_droppable();
                 r.removeClass('newr');
-                r.css({"background-color":"#044A42","color":"#EEEEEE","font-weight":"bold","font-style":"italic"});
+                r.css({"background-color":"#004182","color":"#EEEEEE","font-weight":"bold","font-style":"italic"});
                 // r.css("background-color", "#00ADB5").css("color", "#EEEEEE");
                 ruleList.push(r[0].id);
 
@@ -328,32 +368,34 @@ document.onselectstart=function(){event.returnValue=false}
     $('#finish').click(function(){
         var rule = '';
         var ruletotal = [];
+        var res = '';
+        
 
         for(var r in ruleList){
             var l = $('#'+ruleList[r]).children();
             var count = ruleList[r].split('-')[1];
             rule = dips().make_run(l, count);
             
-            if(count==ruleList.length-1) rule+=",";
-            else rule = rule;
-            //console.log("rule: "+rule);
+            
+                if(count!=1 && count==ruleList.length-1) rule = rule + ",";
+                else rule = rule;
+                //console.log("rule: "+rule);
+                
+            
             ruletotal.push(rule);
-            
-            
             // for(var i = 0; i<ruleList.length; i++){
             //     if(i==ruleList.length) { // the last one no comma
             //         rule = dips().make_run(l, count)+",";
             //     }
             //     // else {
             //     //     rule += dips().make_run(l, count);
-            //     //     rule += ',';   
+            //     //     rule += ',';
             //     // }
             // }
         }
-            
-            // console.log(ruletotal);
-            // console.log($.get('http://localhost:12345', {rule:ruletotal}));
-            console.log($.get('http://localhost:12345', {rule:ruletotal}));
+            // console.log(ruletotal.toString());
+            console.log($.get('localhost:12345', {rule:ruletotal.toString()}));
+            //console.log($.get('http://localhost:12345?', {rule:ruletotal}));
             //console.log($.get('http://192.168.0.100:12345', {rule: rule}));
     });
     
