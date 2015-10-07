@@ -1,16 +1,22 @@
 
-html, body {
+html {
     /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
     background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
     background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
-    background-image:url(http://www.domino-box.com/i/wood.jpg);
+    background: url(http://i.imgur.com/9Kest7C.png) -50px 50px no-repeat, 
+                url(http://www.domino-box.com/i/wood.jpg);
+    /*background: url(http://www.domino-box.com/i/wood.jpg);*/
+    /*background-size: 100px 100px;*/
     font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
 }
+
 body {
     margin: 0px; 
     star:expression(document.oncontextmenu=function(){return false;});
 }
+
 #head {
+    
     text-align: center;
     font-size: 30px;
 }
@@ -32,8 +38,8 @@ body {
     font-weight: bold;
     text-align: center;
     color: #b3b3b3;
-    color: rgba(255, 255, 255, 0.3);
-    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
     /*-webkit-text-rendering: optimizeLegibility;
     -moz-text-rendering: optimizeLegibility;
     -ms-text-rendering: optimizeLegibility;
@@ -55,7 +61,6 @@ body {
     /*top: -120px;*/
     width: 100%;
     font-size: 15px;
-    font-weight: bold;
     text-align: center;
     color: #b3b3b3;
     color: rgba(255, 255, 255, 0.3);
@@ -73,6 +78,7 @@ body {
     width: 1050px;
     /*height: 2000px;*/
     margin: auto; 
+    background: url(http://i.imgur.com/9Kest7C.png) -40px 40px no-repeat;
 
 }
 .left{          
@@ -81,24 +87,26 @@ body {
     margin: auto;
     text-align: center;
     width:400px;
-    height: 500px;
+    height: 520px;
     margin-top: 10px;
     margin-left: 20px;
     float: left;
     /*background-image: url(http://emberjs.com.s3.amazonaws.com/getting-started/bg.png);*/
-    background-color: #B8E1DD;
+    /*background-color: #B8E1DD;*/
+    background-color: rgba(157, 157, 157, 0.2);
     border-color: transparent;
     border-style: solid;
     /*border-right-width: thin;*/
     border-right-color: lightgray;
-
+    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
 }
 .space {
     float: left;
     margin-left: 20px;
     width: 1012px;
     height: 20px;
-    background-color: #B8E1DD;
+    /*background-color: #B8E1DD;*/
+    /*background-color: rgba(0, 0, 0, 0.2);*/
 }
 .preview {
     width: 1012px;
@@ -106,10 +114,11 @@ body {
     padding-bottom: 50px;
     margin-bottom: 101px;
     text-align: center;
-    background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
+    /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
     background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
-    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
-    box-shadow:6px 11px 9px rgba(20%,20%,40%,0.5);
+    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
+    background-color: rgba(157, 157, 157, 0.2);
+    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
 }
 /*.preview {     
     text-align: center;
@@ -124,15 +133,16 @@ body {
     margin: auto;
     text-align: center;
     width: 600px;
-    height: 500px;
+    height: 520px;
     overflow-y: scroll;
     overflow-x: hidden;
     float: left;
     margin-top: 10px;
-    background-color: #B8E1DD;
+    /*background-color: #B8E1DD;*/
+    background-color: rgba(157, 157, 157, 0.2);
     border-color: transparent;
     border-style: solid;
-    box-shadow:6px 11px 9px rgba(20%,20%,40%,0.5);
+    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
 }
 .force-overflow
 {
@@ -144,22 +154,25 @@ body {
 }
 #scroll_style::-webkit-scrollbar-track
 {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    /*border-radius: 10px;*/
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
     background-color: #F5F5F5;
+    /*opacity: 0.6;*/
 }
 
 #scroll_style::-webkit-scrollbar
 {
+    border-radius: 10px;
     width: 12px;
     background-color: #F5F5F5;
 }
 
 #scroll_style::-webkit-scrollbar-thumb
 {
-    border-radius: 8px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #118DF0;
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    /*background-color: #004182;*/
+    background-color: rgba(157, 157, 157, 0.1);
 }
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -269,12 +282,16 @@ body {
     padding-bottom: 30px;
     padding-top: 10px;
     margin-bottom: 35px;
-    margin-top: -10px;
+    margin-top: 10px;
     width: 450px;
     font-size: 16px;
-    color: #E5E5E5;
+    color: navy;
+    font-weight: bold;
+    font-style: italic;
     /*height: 105px;*/
-    background-color: #118DF0;
+    /*background-color: #118DF0;*/
+    background-color: rgba(6, 205, 255, 0.6);
+    /* background-image: url(http://www.domino-box.com/i/wood.jpg); */
     border-radius: 5px;
     border: solid;
     border-style: inset;
@@ -296,17 +313,19 @@ body {
     border-width: 2px;
     background-color: #004182;
     color: #E5E5E5;
+    box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
 }
 
 .blocks {               /* ¤è¶ô */
     text-align: center;
     margin-left: 8%;
-    background-color: #118DF0;
+    /*background-color: #118DF0;*/
+    background-color: rgba(6, 205, 255, 0.6);
     color: #E5E5E5;
-    text-shadow: 1px 1px black;
+    text-shadow: 0.5px 0.5px black;
     width: 250px;
-    height: 24px;
-    font-size: 16px;
+    height: 30px;
+    font-size: 20px;
     border-radius: 5px;
     border: solid;
     border-style: outset;
@@ -316,6 +335,7 @@ body {
     position: relative;
     z-index: 1000;
     opacity: 0.6;
+    box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
     /*-webkit-filter: contrast(60%);*/
 }
 .blocks:hover {
@@ -337,75 +357,88 @@ body {
     font-weight: bold;
     height: 50px;
     text-shadow: 1px 1px black;
-    background-color: #004182;
+    /*background-color: #004182;*/
+    background-color: rgba(0, 0, 0, 0.2);
     border-color: transparent;
     border-style: solid;
-    color: white;
+    color: #004182;
+    color: rgba(255, 255, 255, 0.3);
     font-size: 30px;
     padding-top: 10px;
+    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
 }
 .menu-left {
     font-weight: bold;
     height: 50px;
     text-shadow: 1px 1px black;
-    background-color: #004182;
+    /*background-color: #004182;*/
+    background-color: rgba(0, 0, 0, 0.2);
     border-color: transparent;
     border-style: solid;
-    color: white;
+    color: #004182;
+    color: rgba(255, 255, 255, 0.3);
     font-size: 30px;
     padding-top: 10px;
+    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
 }
 .menu-preview {
     font-weight: bold;
     height: 50px;
-    background-color: #004182;
+    /*background-color: #004182;*/
+    background-color: rgba(0, 0, 0, 0.2);
     border-color: transparent;
     border-style: solid;
-    color: white;
+    color: #004182;
+    color: rgba(255, 255, 255, 0.3);
     font-size: 30px;
     text-shadow: 1px 1px black;
     padding-top: 10px;
+    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
 }
 
 button{
     font-weight: bold;
-    background-color: #387ADF;
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.6);*/
     width: 40px;
     height: 40px;
     float: right;
-    border-width: none;
-    border-style: outset;
+    border: transparent;
     text-align: center;
     font-size: 20px;
     margin-right: 10px;
     margin-left: 10px;
 }
-button:hover {
-    /*background-color: #39D2B4;*/
-    border-style: inset;
-    opacity:0.9; 
-    filter:alpha(opacity=90);  
+button:hover { 
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); 
 }
+button:focus {
+  outline: 0;
+}
+
 #new {
-    background: url(http://img.eyelor.com/web/plus.png) 6px 6px no-repeat;
-    background-color: #387ADF;
-    border-width: 5px;
+    background: url(http://img.eyelor.com/web/plus.png) 9px 8px no-repeat;
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.1);*/
+    /*border-width: ;*/
 }
 #finish {
     
-    background: url(http://www.atualnet.com.br/png/glyphicons_206_ok_2.png) -1px -2px no-repeat;
-    background-color:linear-gradient(top,#3A9188,#044F40);
+    background: url(http://www.atualnet.com.br/png/glyphicons_206_ok_2.png) 2px 4px no-repeat;
+    /*background-color:linear-gradient(top,#3A9188,#044F40);
     background-color:-moz-linear-gradient(top,#3A9188,#044F40);
     background-color:-webkit-linear-gradient(top,#3A9188,#044F40);
-    
-    background-color: #387ADF;
-    border-width: 5px;
+    */
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.1);
+    border-width: 5px;*/
 }
 #deleteAll {
-    background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 6px 7px no-repeat;
-    background-color: #387ADF;
-    border-width: 5px;
+    background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 10px 12px no-repeat;
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.1);
+    border-width: 5px;*/
 }
 .newre {
     text-align: left;
@@ -425,14 +458,12 @@ button:hover {
 .picrightraise{
     background-image:url(http://i.imgur.com/MLbdwNw.png);
     background-repeat:no-repeat;
-    opacity: 0.6;
     background-size:25px 25px;
     background-position: 190px -1px;
 }
 .picleftraise{
     background-image:url(http://i.imgur.com/8VoNkr0.png);
     background-repeat:no-repeat;
-    opacity: 0.6;
     background-size:25px 25px;
     background-position: 190px -1px;
 }
@@ -440,28 +471,24 @@ button:hover {
 .picleftdown{
     background-image:url(http://i.imgur.com/hGojXPO.png);
     background-repeat:no-repeat;
-    opacity: 0.6;
     background-size:25px 25px;
     background-position: 190px -1px;
 }
 .picrightdown{
   background-image: url(http://i.imgur.com/zrgdFF2.png);
   background-repeat:no-repeat;
-  opacity: 0.6;
   background-size:25px 25px;
   background-position: 190px -1px;
 }
 .picnosedown{
     background-image:url(http://www.clker.com/cliparts/c/d/e/e/119715842258917068molumen_elephant_silhouet.svg.hi.png);
     background-repeat:no-repeat;
-    opacity: 0.6;
     background-size:27px 27px;
     background-position: 190px 1px;
 }
 .picnoseraise{
     background-image:url(http://i.imgur.com/xYHK4mP.png);
     background-repeat:no-repeat;
-    opacity: 0.6;
     background-size:33px 33px;
     background-position: 190px -5px;
 }
@@ -470,28 +497,24 @@ button:hover {
     background-repeat:no-repeat;
     background-size:33px 33px;
     background-position: 185px -1px;
-    opacity: 0.6;
 }
 .picbodydown{
     background-image:url(http://i.imgur.com/tqqpMTM.png);
     background-repeat:no-repeat;
     background-size:27px 27px;
     background-position: 190px 1px;
-    opacity: 0.6;
 }
 .piclightoff{
     background-image:url(http://www.davidetrezzi.eu/images/passions/creative.png);
     background-repeat:no-repeat;
     background-size:27px 27px;
     background-position: 190px 1px;
-    opacity: 0.6;
 }
 .piclighton{
     background-image:url(http://www.sevencards.com.br/website2/images/icon_03.png);
     background-repeat:no-repeat;
     background-size:30px 30px;
     background-position: 188px -3px;
-    opacity: 0.6;
 }
 .pictrigger{
     background-image:url(http://icons.iconarchive.com/icons/icons8/windows-8/512/Gaming-Trigger-Mode-icon.png);

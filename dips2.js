@@ -51,8 +51,10 @@ document.onselectstart=function(){event.returnValue=false}
                      
                         // remove when double click
                         $(".test-"+counts[0]).click(function() {
+                            // console.log(".test-"+counts[0] + "============" + ".item-"+counts[0]);
                             $(this).remove();
                             $(".item-"+counts[0]).remove();
+                            
                         });
 
                         /*$(".item-"+counts[0]).click(function() {
@@ -60,7 +62,7 @@ document.onselectstart=function(){event.returnValue=false}
                         });*/
 
                         //tricky hidden ui.helper.clone
-                        $(".item-" + counts[0]).css("color", "#B8E1DD");
+                        $(".item-" + counts[0]).css("color", "rgba(255,255,255,0);");
 
                         // make draggable after dropping into droppable area
                         _this.make_draggable($(".item-"+counts[0]));
@@ -316,19 +318,41 @@ document.onselectstart=function(){event.returnValue=false}
         },// end of add_rulep
         d_check: function() {
             var sel = false;
+            
             var c = confirm('Are you sure?');
             if(c) {
                 for (var r in ruleList) {
-                    var count = ruleList[r].split('-')[1];
-                    if ($("#delete-" + count).prop('checked')) {
-                        sel = true;
-                        $("#rule-" + count).remove();
-                        $("#delete-" + count).remove();
-                        $("#test-" + count).remove();
-                        $("#result-" + count).remove();
-                        ruleList.splice($.inArray("rule-" + count, ruleList), 1)
+                var count = ruleList[r].split('-')[1];
+
+                var ch = $('.preview').find('input[type=checkbox]');
+                //ch.each(function(){
+                    //console.log('sum = '+ch.length); // total checkbox
+                    for(var i=1;i<=ch.length;i++){
+                        if($("#delete-" + i).is(':checked')){
+                            //console.log("check!!!"+i);
+                            sel = true;
+                            $("#rule-" + i).remove();
+                            $("#delete-" + i).remove();
+                            $("#test-" + i).remove();
+                            $("#result-" + i).remove();
+                            ruleList.splice($.inArray("rule-" + i, ruleList), 1);
+                        }
                     }
-                    //$("#delete-"+count+":checked").remove();
+                //});
+                
+            
+                     
+                        // if ($("#delete-" + count).prop('checked')) {
+                        //     console.log(count);
+                        //     sel = true;
+                        //     $("#rule-" + count).remove();
+                        //     $("#delete-" + count).remove();
+                        //     $("#test-" + count).remove();
+                        //     $("#result-" + count).remove();
+                        //     ruleList.splice($.inArray("rule-" + count, ruleList), 1);
+                        // }
+                        //$("#delete-"+count+":checked").remove();
+                
                 }
                 if(!sel) alert('No data selected!');
             }
@@ -394,7 +418,7 @@ document.onselectstart=function(){event.returnValue=false}
             // }
         }
             // console.log(ruletotal.toString());
-            console.log($.get('localhost:12345', {rule:ruletotal.toString()}));
+            console.log($.get('http://localhost:12345', {rule:ruletotal.toString()}));
             //console.log($.get('http://localhost:12345?', {rule:ruletotal}));
             //console.log($.get('http://192.168.0.100:12345', {rule: rule}));
     });
