@@ -321,16 +321,14 @@ document.onselectstart=function(){event.returnValue=false}
             
             var c = confirm('Are you sure?');
             if(c) {
-                for (var r in ruleList) {
-                var count = ruleList[r].split('-')[1];
-
+                
                 var ch = $('.preview').find('input[type=checkbox]');
                 //ch.each(function(){
                     //console.log('sum = '+ch.length); // total checkbox
                     for(var i=1;i<=ch.length;i++){
+                        sel = true;
                         if($("#delete-" + i).is(':checked')){
-                            //console.log("check!!!"+i);
-                            sel = true;
+                            console.log("check!!!"+i);
                             $("#rule-" + i).remove();
                             $("#delete-" + i).remove();
                             $("#test-" + i).remove();
@@ -353,7 +351,7 @@ document.onselectstart=function(){event.returnValue=false}
                         // }
                         //$("#delete-"+count+":checked").remove();
                 
-                }
+                
                 if(!sel) alert('No data selected!');
             }
             return false;
@@ -418,7 +416,7 @@ document.onselectstart=function(){event.returnValue=false}
             // }
         }
             // console.log(ruletotal.toString());
-            console.log($.get('http://localhost:12345', {rule:ruletotal.toString()}));
+            console.log($.get('http://192.168.0.105:12345', {rule:ruletotal.toString()}));
             //console.log($.get('http://localhost:12345?', {rule:ruletotal}));
             //console.log($.get('http://192.168.0.100:12345', {rule: rule}));
     });
