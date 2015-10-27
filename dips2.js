@@ -319,7 +319,7 @@ document.onselectstart=function(){event.returnValue=false}
         d_check: function() {
             var sel = false;
             
-            var c = confirm('Are you sure?');
+            var c = confirm('Delete?');
             if(c) {
                 
                 var ch = $('.preview').find('input[type=checkbox]');
