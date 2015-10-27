@@ -1,0 +1,540 @@
+html {
+    /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
+    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
+    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
+    background: url(http://i.imgur.com/9Kest7C.png) -50px 50px no-repeat, 
+                url(http://www.domino-box.com/i/wood.jpg);
+    /*background: url(http://www.domino-box.com/i/wood.jpg);*/
+    /*background-size: 100px 100px;*/
+    font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0px; 
+    star:expression(document.oncontextmenu=function(){return false;});
+}
+
+#head {
+    
+    text-align: center;
+    font-size: 30px;
+}
+
+#tshow, #tshow_a {
+  cursor: pointer;
+}
+#h, #trig, #trig_a {
+    display: none;
+}
+#todoapp .header {
+    /*position: absolute;*/
+    margin-top: 30px;
+    /*top: -120px;*/
+    width: 100%;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.6);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    /*-webkit-text-rendering: optimizeLegibility;
+    -moz-text-rendering: optimizeLegibility;
+    -ms-text-rendering: optimizeLegibility;
+    -o-text-rendering: optimizeLegibility;*/
+    /*text-rendering: optimizeLegibility;*/
+}
+.header {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+#todoapp .footer {
+    /*position: absolute;*/
+    margin-bottom: 30px;
+    /*top: -120px;*/
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
+    color: #b3b3b3;
+    color: rgba(255, 255, 255, 0.3);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+}
+
+.tests {
+    text-align: left;
+    padding: 0px 30px; 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /*background-color: black;*/
+}
+.container{
+    width: 1050px;
+    /*height: 2000px;*/
+    margin: auto; 
+    background: url(http://i.imgur.com/9Kest7C.png) -40px 40px no-repeat;
+
+}
+.left{          
+    overflow-y: scroll;
+    overflow-x: hidden;        
+    margin: auto;
+    text-align: center;
+    width:400px;
+    height: 520px;
+    margin-top: 10px;
+    margin-left: 20px;
+    float: left;
+    /*background-image: url(http://emberjs.com.s3.amazonaws.com/getting-started/bg.png);*/
+    /*background-color: #B8E1DD;*/
+    background-color: rgba(157, 157, 157, 0.2);
+    border-color: transparent;
+    border-style: solid;
+    /*border-right-width: thin;*/
+    border-right-color: lightgray;
+    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
+}
+.space {
+    float: left;
+    margin-left: 20px;
+    width: 1012px;
+    height: 20px;
+    /*background-color: #B8E1DD;*/
+    /*background-color: rgba(0, 0, 0, 0.2);*/
+}
+.preview {
+    width: 1012px;
+    /*margin-left: 20px;*/
+    padding-bottom: 50px;
+    margin-bottom: 101px;
+    text-align: center;
+    /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
+    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
+    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
+    background-color: rgba(157, 157, 157, 0.2);
+    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
+}
+/*.preview {     
+    text-align: center;
+    width: 1006px;
+    height: 325px;
+    overflow-y: scroll;
+    background-color: #B8E1DD;
+    border-color: transparent;
+    border-style: solid;
+}*/
+.editor{                /* 中間編輯器 */
+    margin: auto;
+    text-align: center;
+    width: 600px;
+    height: 520px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    float: left;
+    margin-top: 10px;
+    /*background-color: #B8E1DD;*/
+    background-color: rgba(157, 157, 157, 0.2);
+    border-color: transparent;
+    border-style: solid;
+    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
+}
+.force-overflow
+{
+    min-height: 500px;
+}
+.force-overflow-preview
+{
+    min-height: 200px;
+}
+#scroll_style::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    /*opacity: 0.6;*/
+}
+
+#scroll_style::-webkit-scrollbar
+{
+    border-radius: 10px;
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#scroll_style::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    /*background-color: #004182;*/
+    background-color: rgba(157, 157, 157, 0.1);
+}
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 75px;
+  cursor: pointer;
+}
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before,
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '';
+  position: absolute;
+}
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  left:0; top: -3px;
+  width: 65px; height: 30px;
+  background: #DDDDDD;
+  border-radius: 15px;
+  transition: background-color .2s;
+}
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  width: 20px; height: 20px;
+  transition: all .2s;
+  border-radius: 50%;
+  background: #7F8C9A;
+  top: 2px; left: 5px;
+}
+
+/* on checked */
+[type="checkbox"]:checked + label:before {
+  background:#34495E; 
+}
+[type="checkbox"]:checked + label:after {
+  background: #88e1f7;
+  top: 2px; left: 40px;
+}
+
+[type="checkbox"]:checked + label .ui,
+[type="checkbox"]:not(:checked) + label .ui:before,
+[type="checkbox"]:checked + label .ui:after {
+  position: absolute;
+  left: 6px;
+  width: 65px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 22px;
+  transition: all .2s;
+}
+[type="checkbox"]:not(:checked) + label .ui:before {
+  content: "no";
+  left: 32px
+}
+[type="checkbox"]:checked + label .ui:after {
+  content: "yes";
+  color: #88e1f7;
+}
+[type="checkbox"]:focus + label:before {
+  border: 1px dashed #777;
+  box-sizing: border-box;
+  margin-top: -1px;
+}
+.dragedit {
+  background: #449187;
+  background-image: -webkit-linear-gradient(top, #1D556F, #288FB4);
+  background-image: -moz-linear-gradient(top, #1D556F, #288FB4);
+  background-image: -ms-linear-gradient(top, #1D556F, #288FB4);
+  background-image: -o-linear-gradient(top, #1D556F, #288FB4);
+  background-image: linear-gradient(to bottom, #1D556F, #288FB4);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 8px 4px 8px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.dragedit:hover {
+  background: #228291;
+  /*border-style: inset;*/
+  background-image: -webkit-linear-gradient(top, #352771, #5E89EF);
+  background-image: -moz-linear-gradient(top, #352771, #5E89EF);
+  background-image: -ms-linear-gradient(top, #352771, #5E89EF);
+  background-image: -o-linear-gradient(top, #352771, #5E89EF);
+  background-image: linear-gradient(to bottom, #352771, #5E89EF);
+  text-decoration: none;
+  border-width: 1px;
+  font-size: 11px;
+}
+
+
+.rules {                /* 中間編輯區內條目 */
+    margin: auto;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    margin-bottom: 35px;
+    margin-top: 10px;
+    width: 450px;
+    font-size: 16px;
+    color: navy;
+    font-weight: bold;
+    font-style: italic;
+    /*height: 105px;*/
+    /*background-color: #118DF0;*/
+    background-color: rgba(6, 205, 255, 0.6);
+    /* background-image: url(http://www.domino-box.com/i/wood.jpg); */
+    border-radius: 5px;
+    border: solid;
+    border-style: inset;
+    border-width: 3px;
+    position: relative;
+}
+.menu {
+    margin-left: 8%;
+    /*text-align: left;*/
+    padding-top: 30px;
+    width: 250px;
+    height: 20px;
+    text-shadow: 1px 2px black;
+    font-size: 16px;
+    border-radius: 5px;
+    border: solid;
+    border-style: outset;
+    border-color: #004182;
+    border-width: 2px;
+    background-color: #004182;
+    color: #E5E5E5;
+    box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
+}
+
+.blocks {               /* 方塊 */
+    text-align: center;
+    margin-left: 8%;
+    /*background-color: #118DF0;*/
+    background-color: rgba(6, 205, 255, 0.6);
+    color: #E5E5E5;
+    text-shadow: 0.5px 0.5px black;
+    width: 250px;
+    height: 30px;
+    /*padding-top: 5px;*/
+    font-size: 16px;
+    border-radius: 5px;
+    border: solid;
+    border-style: outset;
+    border-color: #118DF0;
+    border-width: 2px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+    opacity: 0.6;
+    box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
+    /*-webkit-filter: contrast(60%);*/
+}
+.blocks:hover {
+    background-color: #004182;
+    border-radius: 5px;
+    font-weight: bold;
+    border: solid;
+    border-style: outset;
+    border-color: #004182;
+    border-width: 2px;
+    opacity: 1;
+}
+.blocks.ui-draggable-dragging {
+    background-color: transparent;
+    opacity: 0.6;
+    border: none;
+}
+.menu-rule{
+    font-weight: bold;
+    height: 40px;
+    text-shadow: 1px 1px black;
+    /*background-color: #004182;*/
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    border-style: solid;
+    color: #004182;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 25px;
+    padding-top: 10px;
+    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
+}
+.menu-left {
+    font-weight: bold;
+    height: 40px;
+    text-shadow: 1px 1px black;
+    /*background-color: #004182;*/
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    border-style: solid;
+    color: #004182;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 25px;
+    padding-top: 10px;
+    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
+}
+.menu-preview {
+    font-weight: bold;
+    height: 40px;
+    /*background-color: #004182;*/
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    border-style: solid;
+    color: #004182;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 25px;
+    text-shadow: 1px 1px black;
+    padding-top: 10px;
+    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
+}
+
+button{
+    font-weight: bold;
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.6);*/
+    width: 40px;
+    height: 40px;
+    float: right;
+    border: transparent;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+button:hover { 
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); 
+}
+button:focus {
+  outline: 0;
+}
+
+#new {
+    background: url(http://img.eyelor.com/web/plus.png) 9px 8px no-repeat;
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.1);*/
+    /*border-width: ;*/
+}
+#finish {
+    
+    background: url(http://www.atualnet.com.br/png/glyphicons_206_ok_2.png) 2px 4px no-repeat;
+    /*background-color:linear-gradient(top,#3A9188,#044F40);
+    background-color:-moz-linear-gradient(top,#3A9188,#044F40);
+    background-color:-webkit-linear-gradient(top,#3A9188,#044F40);
+    */
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.1);
+    border-width: 5px;*/
+}
+#deleteAll {
+    background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 10px 12px no-repeat;
+    /*background-color: #387ADF;*/
+    /*background-color: rgba(6, 205, 255, 0.1);
+    border-width: 5px;*/
+}
+.newre {
+    text-align: left;
+    /*background-color: #2D84A7;*/
+    /*height: 110px;*/
+    /*margin-top: -14px;
+    margin-bottom: 10px;
+    padding-bottom: 1px;*/
+    margin-top: -14px;
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #004182;
+    margin-left: 50px;
+    width: 800px;
+    font-style: italic;
+}
+.picrightraise{
+    background-image:url(http://i.imgur.com/MLbdwNw.png);
+    background-repeat:no-repeat;
+    background-size:25px 25px;
+    background-position: 190px -1px;
+}
+.picleftraise{
+    background-image:url(http://i.imgur.com/8VoNkr0.png);
+    background-repeat:no-repeat;
+    background-size:25px 25px;
+    background-position: 190px -1px;
+}
+
+.picleftdown{
+    background-image:url(http://i.imgur.com/hGojXPO.png);
+    background-repeat:no-repeat;
+    background-size:25px 25px;
+    background-position: 190px -1px;
+}
+.picrightdown{
+  background-image: url(http://i.imgur.com/zrgdFF2.png);
+  background-repeat:no-repeat;
+  background-size:25px 25px;
+  background-position: 190px -1px;
+}
+.picnosedown{
+    background-image:url(http://www.clker.com/cliparts/c/d/e/e/119715842258917068molumen_elephant_silhouet.svg.hi.png);
+    background-repeat:no-repeat;
+    background-size:27px 27px;
+    background-position: 190px 1px;
+}
+.picnoseraise{
+    background-image:url(http://i.imgur.com/xYHK4mP.png);
+    background-repeat:no-repeat;
+    background-size:33px 33px;
+    background-position: 190px -5px;
+}
+.picbodyraise{
+    background-image:url(http://i.imgur.com/D2GnKWq.png);
+    background-repeat:no-repeat;
+    background-size:33px 33px;
+    background-position: 185px -1px;
+}
+.picbodydown{
+    background-image:url(http://i.imgur.com/tqqpMTM.png);
+    background-repeat:no-repeat;
+    background-size:27px 27px;
+    background-position: 190px 1px;
+}
+.piclightoff{
+    background-image:url(http://www.davidetrezzi.eu/images/passions/creative.png);
+    background-repeat:no-repeat;
+    background-size:27px 27px;
+    background-position: 190px 1px;
+}
+.piclighton{
+    background-image:url(http://www.sevencards.com.br/website2/images/icon_03.png);
+    background-repeat:no-repeat;
+    background-size:30px 30px;
+    background-position: 188px -3px;
+}
+.pictrigger{
+    background-image:url(http://icons.iconarchive.com/icons/icons8/windows-8/512/Gaming-Trigger-Mode-icon.png);
+    background-repeat:no-repeat;
+    background-size: 45px 45px;
+    background-position: 100px -1px;
+}
+.picaction{
+    background-image:url(https://cdn3.iconfinder.com/data/icons/glypho-generic-icons/64/action-upload-alt-512.png);
+    background-repeat:no-repeat;
+    background-size: 50px 45px;
+    background-position: 100px -2px;
+}
+.picother{
+    background-image:url(https://upload.wikimedia.org/wikipedia/commons/e/ee/Chain_link_icon.png);
+    background-repeat:no-repeat;
+    background-size: 45px 25px;
+    background-position: 105px 2px;
+}
+.picoperator{
+    background-image:url(https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/ADB_Icon.svg/320px-ADB_Icon.svg.png);
+    background-repeat:no-repeat;
+    background-size: 50px 40px;
+    background-position: 105px -1px;
+}
