@@ -10,7 +10,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#tshow").click(function(){
-                $("#trig").toggle('slow');
+                $("#trig").toggle('fast');
         });
             $("#tshow_a").click(function(){
                 $("#trig_a").toggle('fast');
@@ -24,30 +24,9 @@
     <h1 class="header">Script</h1>
 </section>
 <div class="container">     <!--這個 div 是為了讓包含的兩個 div 可以統一置中-->
-    <!-- <header>
-        <div id="head">Digital Interactive Performace Sketch</div><br>
-        <div id="intro">
-            <button id="finish">finish edit</button>
-            <button id="new">add rule</button>
-            <button id="deleteAll">delete rule</button> <br><br>
-        </div>
-    </header> -->
-
     <!--block menu-->
     <div class="left force-overflow" id="scroll_style"><div class="menu-left">Blocks</div><br>
         <ul style=" list-style: none;">
-            <!-- <li class="menu"><strong>STATES</strong></li>
-            <li class="blocks states"><span id="h">[state]: </span>rightHandUp</li>
-            <li class="blocks states"><span id="h">[state]: </span>rightHandDown</li>
-            <li class="blocks states"><span id="h">[state]: </span>leftHandUp</li>
-            <li class="blocks states"><span id="h">[state]: </span>leftHandDown</li>
-            <li class="menu"><strong>ACTIONS</strong></li>h
-            <li class="blocks actions"><span id="h">[action]: </span> { noseRaise }</li>
-            <li class="blocks actions"><span id="h">[action]: </span> { noseLay } </li>
-            <li class="blocks actions"><span id="h">[action]: </span>{ bodyRaise }</li>
-            <li class="blocks actions"><span id="h">[action]: </span> { bodyLay } </li>
-            <li class="blocks actions"><span id="h">[action]: </span> { lightOn } </li>
-            <li class="blocks actions"><span id="h">[action]: </span> { lightOff }</li> -->
             <li class="menu pictrigger" id="tshow"><strong>TRIGGERS</strong></li>
             <div id="trig">
                 <li class="blocks states picrightraise">RightHandUp</li>
@@ -64,8 +43,6 @@
                 <li class="blocks actions piclighton">lightOn</li>
                 <li class="blocks actions piclightoff">lightOff</li>
             </div>
-            <!-- <li class="blocks actions"><span id="h">[action]: </span> keepElephantAction </li>
-            <li class="blocks actions"><span id="h">[action]: </span> keepLightAction </li> -->
             <li class="menu picother"><strong>OTHERWISE</strong></li>
             <li class="blocks otherwise">otherwise</li>
             <li class="menu picoperator"><strong>OPERATORS</strong></li>
@@ -86,13 +63,10 @@
     <div class="space" />
     <!-- display rule script -->
     <div class="preview force-overflow-preview" id="scroll_style">
-        <div class="menu-preview">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preview current editing
-            <button id="deleteAll"></button>
+        <div class="menu-preview">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preview
             <button id="finish"></span></button>
         </div>
         <br><br>
-        <!--<div id="result"></div>-->
-        <!-- <div class="newre" id="result-1"></div> -->
         <br>
     </div>
     <section id="todoapp">

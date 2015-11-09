@@ -1,17 +1,15 @@
 html {
-    /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
-    background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
-    background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
-    background: url(http://i.imgur.com/9Kest7C.png) -50px 50px no-repeat, 
-                url(http://www.domino-box.com/i/wood.jpg);
-    /*background: url(http://www.domino-box.com/i/wood.jpg);*/
-    /*background-size: 100px 100px;*/
+    background: url(http://www.domino-box.com/i/wood.jpg);
     font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
 }
 
 body {
     margin: 0px; 
     star:expression(document.oncontextmenu=function(){return false;});
+}
+.newre {
+    font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+    font-weight: bold;
 }
 
 #head {
@@ -37,11 +35,6 @@ body {
     color: #b3b3b3;
     color: rgba(255, 255, 255, 0.6);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-    /*-webkit-text-rendering: optimizeLegibility;
-    -moz-text-rendering: optimizeLegibility;
-    -ms-text-rendering: optimizeLegibility;
-    -o-text-rendering: optimizeLegibility;*/
-    /*text-rendering: optimizeLegibility;*/
 }
 .header {
     display: block;
@@ -171,75 +164,6 @@ body {
     /*background-color: #004182;*/
     background-color: rgba(157, 157, 157, 0.1);
 }
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  position: absolute;
-  left: -9999px;
-}
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
-  position: relative;
-  padding-left: 75px;
-  cursor: pointer;
-}
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before,
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: '';
-  position: absolute;
-}
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  left:0; top: -3px;
-  width: 65px; height: 30px;
-  background: #DDDDDD;
-  border-radius: 15px;
-  transition: background-color .2s;
-}
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  width: 20px; height: 20px;
-  transition: all .2s;
-  border-radius: 50%;
-  background: #7F8C9A;
-  top: 2px; left: 5px;
-}
-
-/* on checked */
-[type="checkbox"]:checked + label:before {
-  background:#34495E; 
-}
-[type="checkbox"]:checked + label:after {
-  background: #88e1f7;
-  top: 2px; left: 40px;
-}
-
-[type="checkbox"]:checked + label .ui,
-[type="checkbox"]:not(:checked) + label .ui:before,
-[type="checkbox"]:checked + label .ui:after {
-  position: absolute;
-  left: 6px;
-  width: 65px;
-  border-radius: 15px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 22px;
-  transition: all .2s;
-}
-[type="checkbox"]:not(:checked) + label .ui:before {
-  content: "no";
-  left: 32px
-}
-[type="checkbox"]:checked + label .ui:after {
-  content: "yes";
-  color: #88e1f7;
-}
-[type="checkbox"]:focus + label:before {
-  border: 1px dashed #777;
-  box-sizing: border-box;
-  margin-top: -1px;
-}
 .dragedit {
   background: #449187;
   background-image: -webkit-linear-gradient(top, #1D556F, #288FB4);
@@ -313,16 +237,14 @@ body {
     box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
 }
 
-.blocks {               /* ¤è¶ô */
+.blocks {          
     text-align: center;
     margin-left: 8%;
-    /*background-color: #118DF0;*/
-    background-color: rgba(6, 205, 255, 0.6);
+    background-color: rgba(6, 205, 255, 1.0);
     color: #E5E5E5;
     text-shadow: 0.5px 0.5px black;
     width: 250px;
     height: 30px;
-    /*padding-top: 5px;*/
     font-size: 16px;
     border-radius: 5px;
     border: solid;
@@ -330,11 +252,10 @@ body {
     border-color: #118DF0;
     border-width: 2px;
     cursor: pointer;
+    font-weight: bold;
     position: relative;
     z-index: 1000;
-    opacity: 0.6;
     box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
-    /*-webkit-filter: contrast(60%);*/
 }
 .blocks:hover {
     background-color: #004182;
@@ -434,17 +355,9 @@ button:focus {
 }
 #deleteAll {
     background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 10px 12px no-repeat;
-    /*background-color: #387ADF;*/
-    /*background-color: rgba(6, 205, 255, 0.1);
-    border-width: 5px;*/
 }
 .newre {
     text-align: left;
-    /*background-color: #2D84A7;*/
-    /*height: 110px;*/
-    /*margin-top: -14px;
-    margin-bottom: 10px;
-    padding-bottom: 1px;*/
     margin-top: -14px;
     margin-bottom: 40px;
     font-size: 24px;
@@ -454,26 +367,26 @@ button:focus {
     font-style: italic;
 }
 .picrightraise{
-    background-image:url(http://i.imgur.com/MLbdwNw.png);
+    background-image:url(http://i.imgur.com/gAyXRRg.png);
     background-repeat:no-repeat;
     background-size:25px 25px;
     background-position: 190px -1px;
 }
 .picleftraise{
-    background-image:url(http://i.imgur.com/8VoNkr0.png);
+    background-image:url(http://i.imgur.com/kVoUBQ4.png);
     background-repeat:no-repeat;
     background-size:25px 25px;
     background-position: 190px -1px;
 }
 
 .picleftdown{
-    background-image:url(http://i.imgur.com/hGojXPO.png);
+    background-image:url(http://i.imgur.com/AxJpbpp.png);
     background-repeat:no-repeat;
     background-size:25px 25px;
     background-position: 190px -1px;
 }
 .picrightdown{
-  background-image: url(http://i.imgur.com/zrgdFF2.png);
+  background-image: url(http://i.imgur.com/AxJpbpp.png);
   background-repeat:no-repeat;
   background-size:25px 25px;
   background-position: 190px -1px;

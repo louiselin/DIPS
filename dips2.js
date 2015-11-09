@@ -57,10 +57,6 @@ document.onselectstart=function(){event.returnValue=false}
                             
                         });
 
-                        /*$(".item-"+counts[0]).click(function() {
-                            $(this).remove();
-                        });*/
-
                         //tricky hidden ui.helper.clone
                         $(".item-" + counts[0]).css("color", "rgba(255,255,255,0);");
 
@@ -117,15 +113,6 @@ document.onselectstart=function(){event.returnValue=false}
                         break;  
                     case "actions":
                         num = ++num_actions;
-                        // switch(l[i].innerHTML){
-                        //     case 'Nose-Up': actionchangetext = 'noseRaise';break;
-                        //     case 'Nose-Down': actionchangetext = 'noseLay';break;
-                        //     case 'Body-Up': actionchangetext = 'bodyRaise';break;
-                        //     case 'Body-Down': actionchangetext = 'bodyLay';break;
-                        //     case 'Light-On': actionchangetext = 'lightOn';break;
-                        //     case 'Light-Off': actionchangetext = 'lightOff';break;    
-                        //     default: actionchangetext = 'noseRaise';break;
-                        // }
 
                         if(action_count == 0){
                             action_count = 1;
@@ -139,35 +126,13 @@ document.onselectstart=function(){event.returnValue=false}
                             actions3 = l[i].innerHTML + '';
                             action_count = 0;
                         }
-                        //num = ++num_actions;
-                        //for(var n=1; n<=num; n++){
-                        //    if(action_count == 0) {
-                        //        action_count = 1;
-                        //        var a = actions+[n];
-                        //        a = l[i].innerHTML + '';
-                        //    }
-                        //    else {
-                        //        var b = actions+[++n];
-                        //        b = l[i].innerHTML + '';
-                        //    }
-                        //}
 
                         break;
-                    // case "effects":
-                    //     effectst = l[i].innerHTML + '';
-                    //     break;
                     case "operators":
                         operators = 1;
                         operator = l[i].innerHTML + '';
                         
-                        //if(operator_count == 0) {
-                        //    operator_count = 1;
-                        //    var operator1 = l[i].innerHTML + '';
-                        //}
-                        //else {
-                        //    var operator2 = l[i].innerHTML + '';
-                        //    operator_count = 0;
-                        //}
+                       
                         break;
                     case "otherwise":
                         otherwise = 1;
@@ -179,7 +144,7 @@ document.onselectstart=function(){event.returnValue=false}
 
             if(operators==0) {
                 rule = ruleName + 'when(' + states + /* more states generator */
-                '){ ' + actions1 + '}'+ (otherwise ? ' otherwise {' + actions2 + ' }': '') + '\n';    
+                '){ ' + actions1 + ' }'+ (otherwise ? ' otherwise {' + actions2 + ' }': '') + '\n';    
             } else if(operators==1) {
                 if(num==2) {
                     rule = ruleName + 'when(' + states + /* more states generator */
@@ -195,14 +160,7 @@ document.onselectstart=function(){event.returnValue=false}
             } else {
                 alert("Out of defined!");
             }
-            //imports +
-            // rule = ruleName + 'when(' + states + /* more states generator */
-            //     ')' + actions1 + (otherwise ? ' otherwise ' + actions2 : ' ') +'\n';
-            
-            //rule = ruleName + 'when(' + states +
-            //    ')' + a + (otherwise ? 'otherwise' + b + ' ' : ' ') +
-            //    '\nlistener.instruct(Rule' + count + ')\n' + num;
-
+           
             return rule;
         },
         make_run: function(l, count){
@@ -229,15 +187,6 @@ document.onselectstart=function(){event.returnValue=false}
                         states = statexchangetext;
                         break;    
                     case "actions":
-                        // switch(l[i].innerHTML){
-                        //     case 'Nose-Up': actionchangetext = 'noseRaise';break;
-                        //     case 'Nose-Down': actionchangetext = 'noseLay';break;
-                        //     case 'Body-Up': actionchangetext = 'bodyRaise';break;
-                        //     case 'Body-Down': actionchangetext = 'bodyLay';break;
-                        //     case 'Light-On': actionchangetext = 'lightOn';break;
-                        //     case 'Light-Off': actionchangetext = 'lightOff';break;    
-                        //     default: actionchangetext = 'noseRaise';break;
-                        // }
 
                         if(action_count == 0){
                             action_count = 1;
@@ -297,17 +246,13 @@ document.onselectstart=function(){event.returnValue=false}
                 _this.make_droppable();
                 r.removeClass('newr');
                 r.css({"background-color":"#004182","color":"#EEEEEE","font-weight":"bold","font-style":"italic"});
-                // r.css("background-color", "#00ADB5").css("color", "#EEEEEE");
                 ruleList.push(r[0].id);
 
                 --accumulator;
                 $('.preview').append('<div class="newre" id="result-' + accumulator + '"><br><br><hr /></div>');
                 rule = _this.make_rule(l, count);
-                $('#result-' + accumulator).html('<p><input type="checkbox" class="delete"' 
-                    + 'id="delete-' + accumulator + '"'
-                    //+ 'onChange=$(this).parent().remove();'
-                    + '/><label for="delete-'+accumulator+'"><span class="ui"></span>'
-                    //+ '<span id="test-' + accumulator + '">'
+                $('#result-' + accumulator).html('<p>'
+                    + '<label for="delete-'+accumulator+'"><span class="ui"></span>'
                     + rule.replace(/\n/g, '<br>')
                     + '</label></p>'
                 );
@@ -319,12 +264,10 @@ document.onselectstart=function(){event.returnValue=false}
         d_check: function() {
             var sel = false;
             
-            var c = confirm('Delete?');
+            var c = confirm('Sure?');
             if(c) {
                 
                 var ch = $('.preview').find('input[type=checkbox]');
-                //ch.each(function(){
-                    //console.log('sum = '+ch.length); // total checkbox
                     for(var i=1;i<=ch.length;i++){
                         sel = true;
                         if($("#delete-" + i).is(':checked')){
@@ -336,20 +279,6 @@ document.onselectstart=function(){event.returnValue=false}
                             ruleList.splice($.inArray("rule-" + i, ruleList), 1);
                         }
                     }
-                //});
-                
-            
-                     
-                        // if ($("#delete-" + count).prop('checked')) {
-                        //     console.log(count);
-                        //     sel = true;
-                        //     $("#rule-" + count).remove();
-                        //     $("#delete-" + count).remove();
-                        //     $("#test-" + count).remove();
-                        //     $("#result-" + count).remove();
-                        //     ruleList.splice($.inArray("rule-" + count, ruleList), 1);
-                        // }
-                        //$("#delete-"+count+":checked").remove();
                 
                 
                 if(!sel) alert('No data selected!');
