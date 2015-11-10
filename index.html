@@ -1,8 +1,8 @@
 
 <html>
 <head>
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
@@ -21,12 +21,13 @@
 </head>
 <body>
 <section id="todoapp">
-    <h1 class="header">Script</h1>
+    <h1 class="header"></br></br></h1>
 </section>
 <div class="container">     <!--這個 div 是為了讓包含的兩個 div 可以統一置中-->
     <!--block menu-->
-    <div class="left force-overflow" id="scroll_style"><div class="menu-left">Blocks</div><br>
-        <ul style=" list-style: none;">
+    <div class="left force-overflow" id="scroll_style"><div class="menu-left">Blocks</div>
+        <ul style=" list-style: none;" class="ch1 force-overflow" id="scroll_style">
+			</br>
             <li class="menu pictrigger" id="tshow"><strong>TRIGGERS</strong></li>
             <div id="trig">
                 <li class="blocks states picrightraise">RightHandUp</li>
@@ -53,24 +54,30 @@
     </div>
 
     <!--rule entry-->
-    <div class="editor force-overflow" id="scroll_style">
-        <div class="menu-rule">Rule
-            <button id="new"></button>
+    <div class="ch2 force-overflow" id="scroll_style">
+		<div class="menu-rule">Rule
+        	<button id="new">ADD</button>
         </div>
-        <br><br>
-        <div class="rules newr" id="rule-1"><br></div>
-    </div>
-    <div class="space" />
+    
+   	  	<div class="editor force-overflow" id="scroll_style">
+	    <br>
+        <div class="rules newr" id="rule-1"></br></div>
+   		</div>
+	 </div>
+    <div class="space" >
     <!-- display rule script -->
-    <div class="preview force-overflow-preview" id="scroll_style">
-        <div class="menu-preview">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preview
-            <button id="finish"></span></button>
-        </div>
-        <br><br>
-        <br>
-    </div>
+
+	<div class="ch3 force-overflow-preview" id="scroll_style">
+	     <div class="menu-preview">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Preview
+   	         <button id="finish">SEND</span></button>
+   	     </div>
+   	
+		<div class="preview force-overflow-preview" id="scroll_style">
+   	     <br>
+   	 	</div>
+	</div>
     <section id="todoapp">
-        <footer class="footer">Drag-and-Drog to do rules<br>Created on Oct 7th</footer>
+        <footer class="footer">Drag-and-Drop to do rules<br>Created on Oct 7th</footer>
     </section>
 </div>
 </div>

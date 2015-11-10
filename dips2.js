@@ -234,6 +234,7 @@ document.onselectstart=function(){event.returnValue=false}
         },
         add_rule: function(){
             var r = $('.newr'); // only one newr
+			var re = $('.newre');
             var l = r.children();
             var count = parseInt(r[0].id.split('-')[1]);
             var accumulator = count + 1;
@@ -241,16 +242,21 @@ document.onselectstart=function(){event.returnValue=false}
 
             try{
                 //var show = _this.make_droppable();
-                $('.editor').append('<div class="rules newr" id="rule-'+ accumulator + '"><br></div>');
+                $('<div class="rules newr" id="rule-'+ accumulator + '"><br></div>').insertBefore(r[0]);
 
                 _this.make_droppable();
                 r.removeClass('newr');
-                r.css({"background-color":"#004182","color":"#EEEEEE","font-weight":"bold","font-style":"italic"});
+                r.css({"background-color":"#89A570","color":"#FFFFFF","font-weight":"bold","font-style":"italic"});
                 ruleList.push(r[0].id);
 
                 --accumulator;
-                $('.preview').append('<div class="newre" id="result-' + accumulator + '"><br><br><hr /></div>');
-                rule = _this.make_rule(l, count);
+				if(accumulator==1){
+                	$('.preview').append('<div class="newre" id="result-' + accumulator + '"><br><br><hr /></div>');
+                }
+				else{
+				  	$('<div class="newre" id="result-' + accumulator + '"><br><br><hr /></div>').insertBefore(re[0]);
+				}
+				rule = _this.make_rule(l, count);
                 $('#result-' + accumulator).html('<p>'
                     + '<label for="delete-'+accumulator+'"><span class="ui"></span>'
                     + rule.replace(/\n/g, '<br>')

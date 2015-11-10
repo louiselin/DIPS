@@ -1,5 +1,5 @@
 html {
-    background: url(http://www.domino-box.com/i/wood.jpg);
+    background: url(BG3.png);
     font-family: "Open sans", "Segoe UI", "Segoe WP", Helvetica, Arial, sans-serif;
 }
 
@@ -29,7 +29,7 @@ body {
     margin-top: 30px;
     /*top: -120px;*/
     width: 100%;
-    font-size: 70px;
+    font-size: 50px;
     font-weight: bold;
     text-align: center;
     color: #b3b3b3;
@@ -47,14 +47,13 @@ body {
 }
 #todoapp .footer {
     /*position: absolute;*/
-    margin-bottom: 30px;
     /*top: -120px;*/
     width: 100%;
     font-size: 15px;
     text-align: center;
     color: #b3b3b3;
-    color: rgba(255, 255, 255, 0.3);
-    text-shadow: -1px -1px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255,1);
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.8);
 }
 
 .tests {
@@ -65,30 +64,35 @@ body {
     /*background-color: black;*/
 }
 .container{
-    width: 1050px;
+    width: 1100px;
     /*height: 2000px;*/
     margin: auto; 
-    background: url(http://i.imgur.com/9Kest7C.png) -40px 40px no-repeat;
 
 }
-.left{          
-    overflow-y: scroll;
-    overflow-x: hidden;        
+.left{         
+	border: 0px; 
     margin: auto;
     text-align: center;
-    width:400px;
-    height: 520px;
+    width: 400px;
+    height: 440px;
     margin-top: 10px;
     margin-left: 20px;
     float: left;
     /*background-image: url(http://emberjs.com.s3.amazonaws.com/getting-started/bg.png);*/
     /*background-color: #B8E1DD;*/
-    background-color: rgba(157, 157, 157, 0.2);
+    background-color: rgba(214, 147, 255, 0.82);
     border-color: transparent;
     border-style: solid;
     /*border-right-width: thin;*/
     border-right-color: lightgray;
     box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
+}
+.ch1{
+	margin-top:1px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	width:auto;
+	height: 385px;
 }
 .space {
     float: left;
@@ -99,44 +103,52 @@ body {
     /*background-color: rgba(0, 0, 0, 0.2);*/
 }
 .preview {
-    width: 1012px;
-    /*margin-left: 20px;*/
-    padding-bottom: 50px;
-    margin-bottom: 101px;
+	margin-top:2px;
+ 	height: 240px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.ch3{
+	
+	border:0px;
+	margin:auto;
+    width: 800px;
+	height:300px;
+/*margin-left: 20px;*/
+    margin-bottom: 30px;
     text-align: center;
     /*background:linear-gradient(top,#B8E1DD,#FFFFFF) no-repeat;
     background:-moz-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;
     background:-webkit-linear-gradient(top,#B8E1DD,#FFFFFF)no-repeat;*/
-    background-color: rgba(157, 157, 157, 0.2);
-    box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
+    background-color: rgba(23, 31, 45, 0.9);
+	box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
 }
-/*.preview {     
-    text-align: center;
-    width: 1006px;
-    height: 325px;
-    overflow-y: scroll;
-    background-color: #B8E1DD;
-    border-color: transparent;
-    border-style: solid;
-}*/
+
 .editor{                /* ¤¤¶¡½s¿è¾¹ */
+	margin-top:1px;
+	overflow-y: scroll;
+    overflow-x: hidden;
+	height:385px;
+    /*background-color: #B8E1DD;*/
+}
+.ch2{
+	border:0px;
     margin: auto;
+	margin-left:40px;
+	margin-bottom:30px;
     text-align: center;
     width: 600px;
-    height: 520px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    float: left;
-    margin-top: 10px;
-    /*background-color: #B8E1DD;*/
-    background-color: rgba(157, 157, 157, 0.2);
+    height: 440px;
+    background-color: rgba(221, 255, 166, 0.9);
     border-color: transparent;
     border-style: solid;
     box-shadow:6px 5px 11px rgba(20%,20%,40%,0.5);
+	float: left;
+	margin-top:10px;
 }
 .force-overflow
 {
-    min-height: 500px;
+    min-height: 300;
 }
 .force-overflow-preview
 {
@@ -145,7 +157,6 @@ body {
 #scroll_style::-webkit-scrollbar-track
 {
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    border-radius: 10px;
     background-color: #F5F5F5;
     /*opacity: 0.6;*/
 }
@@ -206,18 +217,18 @@ body {
     margin-top: 10px;
     width: 450px;
     font-size: 16px;
-    color: navy;
+    color: rgb(0,85,0);
     font-weight: bold;
     font-style: italic;
-    /*height: 105px;*/
-    /*background-color: #118DF0;*/
-    background-color: rgba(6, 205, 255, 0.6);
-    /* background-image: url(http://www.domino-box.com/i/wood.jpg); */
-    border-radius: 5px;
-    border: solid;
-    border-style: inset;
-    border-width: 3px;
-    position: relative;
+    background-color: rgba(0, 255, 55, 0.32);
+	border:0px;
+}
+.newr{
+	height:120px;
+	border-radius: px;
+    border: 5px;
+    border-style: double;
+    
 }
 .menu {
     margin-left: 8%;
@@ -232,7 +243,7 @@ body {
     border-style: outset;
     border-color: #004182;
     border-width: 2px;
-    background-color: #004182;
+    background-color: rgba(228, 74, 152, 0.85);
     color: #E5E5E5;
     box-shadow:1px 1px 3px rgba(20%,20%,40%,0.5);
 }
@@ -240,7 +251,7 @@ body {
 .blocks {          
     text-align: center;
     margin-left: 8%;
-    background-color: rgba(6, 205, 255, 1.0);
+    background-color: rgb(123, 36, 149);
     color: #E5E5E5;
     text-shadow: 0.5px 0.5px black;
     width: 250px;
@@ -275,13 +286,13 @@ body {
 .menu-rule{
     font-weight: bold;
     height: 40px;
-    text-shadow: 1px 1px black;
+    text-shadow: 0px 0px 3px black;
     /*background-color: #004182;*/
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(51, 51, 51, 0.46);
     border-color: transparent;
     border-style: solid;
     color: #004182;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgb(249, 249, 249);
     font-size: 25px;
     padding-top: 10px;
     box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
@@ -289,28 +300,28 @@ body {
 .menu-left {
     font-weight: bold;
     height: 40px;
-    text-shadow: 1px 1px black;
-    /*background-color: #004182;*/
-    background-color: rgba(0, 0, 0, 0.2);
+    text-shadow: 0px 0px 3px black;
+    /* background-color: #004182; */
+    background-color: rgba(51, 51, 51, 0.46);
     border-color: transparent;
     border-style: solid;
     color: #004182;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgb(249, 249, 249);
     font-size: 25px;
     padding-top: 10px;
-    box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
+    box-shadow: 3px 3px 8px rgba(20%,20%,40%,0.5);
 }
 .menu-preview {
     font-weight: bold;
     height: 40px;
     /*background-color: #004182;*/
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(51, 51, 51, 0.46);
     border-color: transparent;
     border-style: solid;
     color: #004182;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgb(249,249,249);
     font-size: 25px;
-    text-shadow: 1px 1px black;
+    text-shadow: 0px 0px 3px black;
     padding-top: 10px;
     box-shadow:3px 3px 8px rgba(20%,20%,40%,0.5);
 }
@@ -318,8 +329,7 @@ body {
 button{
     font-weight: bold;
     /*background-color: #387ADF;*/
-    /*background-color: rgba(6, 205, 255, 0.6);*/
-    width: 40px;
+   width: 100px;
     height: 40px;
     float: right;
     border: transparent;
@@ -327,7 +337,19 @@ button{
     font-size: 20px;
     margin-right: 10px;
     margin-left: 10px;
+	box-shadow: 0 3px 7px rgba(0,0,0,0.7);
+	border-radius: 5px;
 }
+#new {
+    background-color: rgba(213, 76, 113, 1);
+	color: rgb(255,255,255);
+ 
+}
+#finish{
+    background-color: rgba(211, 136, 74, 1);
+ 	color:	rgb(255,255,255);
+}
+
 button:hover { 
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); 
@@ -336,32 +358,10 @@ button:focus {
   outline: 0;
 }
 
-#new {
-    background: url(http://img.eyelor.com/web/plus.png) 9px 8px no-repeat;
-    /*background-color: #387ADF;*/
-    /*background-color: rgba(6, 205, 255, 0.1);*/
-    /*border-width: ;*/
-}
-#finish {
-    
-    background: url(http://www.atualnet.com.br/png/glyphicons_206_ok_2.png) 2px 4px no-repeat;
-    /*background-color:linear-gradient(top,#3A9188,#044F40);
-    background-color:-moz-linear-gradient(top,#3A9188,#044F40);
-    background-color:-webkit-linear-gradient(top,#3A9188,#044F40);
-    */
-    /*background-color: #387ADF;*/
-    /*background-color: rgba(6, 205, 255, 0.1);
-    border-width: 5px;*/
-}
-#deleteAll {
-    background: url(http://dump.tentacleriot.eu/extracting-data-from-pdf/images/glyphicons/glyphicons_207_remove_2.png) 10px 12px no-repeat;
-}
 .newre {
     text-align: left;
-    margin-top: -14px;
-    margin-bottom: 40px;
     font-size: 24px;
-    color: #004182;
+    color: rgba(255,255,255,1);
     margin-left: 50px;
     width: 800px;
     font-style: italic;
