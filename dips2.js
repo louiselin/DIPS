@@ -351,8 +351,8 @@ document.onselectstart=function(){event.returnValue=false}
             // }
         }
             // console.log(ruletotal.toString());
-            console.log($.get('http://192.168.0.105:12345', {rule:ruletotal.toString()}));
-            //console.log($.get('http://localhost:12345?', {rule:ruletotal}));
+            //console.log($.get('http://192.168.0.105:12345', {rule:ruletotal.toString()}));
+            console.log($.get('http://localhost:12345?', {rule:ruletotal}));
             //console.log($.get('http://192.168.0.100:12345', {rule: rule}));
     });
     
